@@ -1,0 +1,14 @@
+form {
+  padding: 30px 20px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  gap: 10px;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
