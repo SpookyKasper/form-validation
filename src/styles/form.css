@@ -7,6 +7,11 @@ form {
   gap: 10px;
 }
 
+input,
+select {
+  padding: 5px;
+}
+
 .input-field {
   display: flex;
   flex-direction: column;
