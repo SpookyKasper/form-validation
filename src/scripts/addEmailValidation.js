@@ -12,7 +12,7 @@ function addConstrains(input) {
   addMinLength(input, 8);
 }
 
-export function displayErrorsOnBlur(field) {
+function displayErrorsOnBlur(field) {
   const input = field.querySelector("input");
   input.addEventListener("input", () => checkEmailValidity(field));
 }

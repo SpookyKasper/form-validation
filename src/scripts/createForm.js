@@ -22,6 +22,7 @@ export default function createForm() {
   const submitBtn = createSubmitButton("Submit");
   submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
+    checkEmailValidity(emailField);
   });
 
   formEl.append(
