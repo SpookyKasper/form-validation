@@ -19,17 +19,6 @@ button {
   gap: 2px;
 }
 
-input:valid {
-  /* border: 2px solid green; */
-}
-
-input:invalid {
-  /* border: 2px solid red; */
-}
-
-.error {
-}
-
 .error.active {
   font-size: 16px;
   text-wrap: wrap;

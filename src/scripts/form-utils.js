@@ -5,9 +5,7 @@ export function createInputField(type, id, placeholder = "") {
   const myLabelEl = createLabelEl(id);
   const myInputEl = createInputEl(type, id, placeholder);
   const errorSpan = createErrorSpan();
-
   inputContainer.append(myLabelEl, myInputEl, errorSpan);
-
   return inputContainer;
 }
 
@@ -15,8 +13,8 @@ export function createSelectField(id, options, firstOption) {
   const inputContainer = createInputFieldContainer();
   const myLabelEl = createLabelEl(id);
   const mySelectEl = createSelectEl(id, options, firstOption);
-
-  inputContainer.append(myLabelEl, mySelectEl);
+  const errorSpan = createErrorSpan();
+  inputContainer.append(myLabelEl, mySelectEl, errorSpan);
 
   return inputContainer;
 }
