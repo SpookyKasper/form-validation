@@ -1,8 +1,8 @@
 import "../styles/form.css";
 import { createSubmitButton, createInputField } from "./form-utils";
 import createCountryField from "./createCountryField";
-import emailValidation from "./emailValidation";
-import passValidation from "./passValidation";
+import addPassValidation from "./addPassValidation";
+import addEmailValidation from "./addEmailValidation";
 import confirmValidation from "./confirmValidation";
 
 export default function createForm() {
@@ -15,8 +15,8 @@ export default function createForm() {
   const passwordField = createInputField("password", "password");
   const passConfInput = createInputField("password", "pass-confirmation");
 
-  emailValidation(emailField);
-  passValidation(passwordField);
+  addEmailValidation(emailField);
+  addPassValidation(passwordField);
   confirmValidation(passConfInput, passwordField);
 
   const submitBtn = createSubmitButton("Submit");

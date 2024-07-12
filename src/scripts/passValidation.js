@@ -20,15 +20,3 @@ function addConstrains(input) {
 function myPasswordConstrain(string) {
   return hasSpecialCharacter(string) && hasUpperCaseLetter(string);
 }
-
-function showPassError(input, errorSpan) {
-  if (input.validity.valueMissing) {
-    errorSpan.textContent = "Password can't be blank";
-  } else if (input.validity.tooShort) {
-    errorSpan.textContent = `Password should be at least ${input.minLength} characters; you entered ${input.value.length}`;
-  } else if (!hasUpperCaseLetter(input.value)) {
-    errorSpan.textContent = `Please add at lease one upper case letter`;
-  } else if (!hasSpecialCharacter(input.value)) {
-    errorSpan.textContent = `Please add at lease one special character (*./@# etc.)`;
-  }
-}
