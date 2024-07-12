@@ -1,6 +1,13 @@
 import checkPassConfValidity from "./checkPassConfValidity";
+import { createInputField } from "./form-utils";
 
-export default function addPassConfValidation(confirmField, originalField) {
+export default function passConfFieldWithValidation(originalField) {
+  const passConfField = createInputField("password", "pass-confirmation");
+  addPassConfValidation(passConfField, originalField);
+  return passConfField;
+}
+
+function addPassConfValidation(confirmField, originalField) {
   displayErrorsOnBlur(confirmField, originalField);
 }
 

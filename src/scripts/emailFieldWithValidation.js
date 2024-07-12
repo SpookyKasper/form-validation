@@ -1,7 +1,14 @@
 import checkEmailValidity from "./checkEmailValidity";
+import { createInputField } from "./form-utils";
 import { addRequiredField, addMinLength } from "./validation-utils";
 
-export default function addEmailValidation(emailField) {
+export default function emailFieldWithValidation() {
+  const emailField = createInputField("email", "email", "someone@mail.com");
+  addEmailValidation(emailField);
+  return emailField;
+}
+
+function addEmailValidation(emailField) {
   const emailInput = emailField.querySelector("input");
   addConstrains(emailInput);
   displayErrorsOnBlur(emailField);

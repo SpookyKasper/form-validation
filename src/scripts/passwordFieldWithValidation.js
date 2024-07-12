@@ -1,7 +1,14 @@
 import checkPassValidity from "./checkPassValidity";
+import { createInputField } from "./form-utils";
 import { addMinLength, addRequiredField } from "./validation-utils";
 
-export default function addPassValidation(passwordField) {
+export default function passwordFieldWithValidation() {
+  const passwordField = createInputField("password", "password");
+  addPassValidation(passwordField);
+  return passwordField;
+}
+
+function addPassValidation(passwordField) {
   const passInput = passwordField.querySelector("input");
   addConstrains(passInput);
   displayErrorsOnBlur(passwordField);
