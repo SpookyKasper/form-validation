@@ -20,6 +20,15 @@ export function createSelectField(id, options, firstOption) {
   return inputContainer;
 }
 
+export function createSubmitButton(text) {
+  const submitBtn = document.createElement("button");
+  submitBtn.textContent = text;
+  submitBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+  });
+  return submitBtn;
+}
+
 function createInputFieldContainer() {
   const inputFieldContainer = document.createElement("div");
   inputFieldContainer.classList.add("input-field");

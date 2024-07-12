@@ -1,7 +1,8 @@
 import "../styles/form.css";
-import { createInputField } from "./form-utils";
+import { createSubmitButton, createInputField } from "./form-utils";
 import createCountryField from "./createCountryField";
 import addEmailValidation from "./emailValidation";
+import { addRequiredField } from "./validation-utils";
 
 export default function createForm() {
   const formEl = document.createElement("form");
@@ -13,8 +14,7 @@ export default function createForm() {
   const zipCodeInput = createInputField("text", "zip-code");
   const passwordInput = createInputField("password", "password");
   const passConfInput = createInputField("password", "pass-confirmation");
-  const submitBtn = document.createElement("button");
-  submitBtn.textContent = "Submit";
+  const submitBtn = createSubmitButton("Submit");
 
   formEl.append(
     emailField,

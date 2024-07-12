@@ -8,7 +8,8 @@ form {
 }
 
 input,
-select {
+select,
+button {
   padding: 5px;
 }
 
@@ -16,4 +17,12 @@ select {
   display: flex;
   flex-direction: column;
   gap: 2px;
+}
+
+input:valid {
+  border: 2px solid green;
+}
+
+input:invalid {
+  border: 1px solid red;
 }

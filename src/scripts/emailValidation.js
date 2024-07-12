@@ -1,5 +1,22 @@
+import { addRequiredField, addMinLength } from "./validation-utils";
+
 export default function addEmailValidation(emailInputField) {
   const emailInput = emailInputField.querySelector("#email");
-  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  emailInput.setAttribute("pattern", emailPattern);
+  addRequiredField(emailInput);
+  addMinLength(emailInput);
+  checkValidationOnInput(emailInput);
+}
+
+function checkValidationOnInput(emailInput) {
+  emailInput.addEventListener("input", () => {
+    console.log(emailInput.validity);
+  });
+}
+
+function checkEmailType() {
+  if (emailInput.validity.typeMismatch) {
+    emailInput.setCustomValidity("Please make sure to type a valid email");
+  } else {
+    emailInput.setCustomValidity("");
+  }
 }
