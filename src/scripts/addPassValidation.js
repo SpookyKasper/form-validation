@@ -14,7 +14,5 @@ function addConstrains(input) {
 
 function displayErrorsOnBlur(field) {
   const input = field.querySelector("input");
-  input.addEventListener("input", () => {
-    checkPassValidity(field);
-  });
+  input.addEventListener("input", () => checkPassValidity(field));
 }

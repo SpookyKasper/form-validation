@@ -3,7 +3,10 @@ import { createSubmitButton, createInputField } from "./form-utils";
 import createCountryField from "./createCountryField";
 import addPassValidation from "./addPassValidation";
 import addEmailValidation from "./addEmailValidation";
-import confirmValidation from "./confirmValidation";
+import addPassConfValidation from "./addPassConfValidation";
+import checkEmailValidity from "./checkEmailValidity";
+import checkPassValidity from "./checkPassValidity";
+import checkPassConfValidity from "./checkPassConfValidity";
 
 export default function createForm() {
   const formEl = document.createElement("form");
@@ -13,16 +16,18 @@ export default function createForm() {
   const countryField = createCountryField();
   const zipCodeInput = createInputField("text", "zip-code");
   const passwordField = createInputField("password", "password");
-  const passConfInput = createInputField("password", "pass-confirmation");
+  const passConfField = createInputField("password", "pass-confirmation");
 
   addEmailValidation(emailField);
   addPassValidation(passwordField);
-  confirmValidation(passConfInput, passwordField);
+  addPassConfValidation(passConfField, passwordField);
 
   const submitBtn = createSubmitButton("Submit");
   submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
     checkEmailValidity(emailField);
+    checkPassValidity(passwordField);
+    checkPassConfValidity(passConfField, passwordField);
   });
 
   formEl.append(
@@ -30,7 +35,7 @@ export default function createForm() {
     countryField,
     zipCodeInput,
     passwordField,
-    passConfInput,
+    passConfField,
     submitBtn
   );
 

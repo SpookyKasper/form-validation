@@ -1,5 +1,5 @@
-import { addRequiredField, addMinLength } from "./validation-utils";
 import checkEmailValidity from "./checkEmailValidity";
+import { addRequiredField, addMinLength } from "./validation-utils";
 
 export default function addEmailValidation(emailField) {
   const emailInput = emailField.querySelector("input");
