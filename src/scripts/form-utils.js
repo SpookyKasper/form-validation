@@ -24,7 +24,7 @@ export function createSubmitButton(text) {
   const submitBtn = document.createElement("button");
   submitBtn.textContent = text;
   submitBtn.addEventListener("click", (event) => {
-    event.preventDefault();
+    // event.preventDefault();
   });
   return submitBtn;
 }
