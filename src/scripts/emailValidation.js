@@ -1,29 +1,22 @@
 import {
   addRequiredField,
   addMinLength,
-  createErrorSpan,
+  displayErrorsOnBlur,
 } from "./validation-utils";
 
-export default function addEmailValidation(emailInputField) {
-  const errorSpan = createErrorSpan();
-  emailInputField.append(errorSpan);
-
-  const emailInput = emailInputField.querySelector("#email");
-  addRequiredField(emailInput);
-  addMinLength(emailInput, 8);
-  checkValidationOnInput(emailInput, errorSpan);
+export default function emailValidation(emailField) {
+  const emailInput = emailField.querySelector("input");
+  addConstrains(emailInput);
+  displayErrorsOnBlur(emailField, showEmailError, customEmailValidation);
 }
 
-function checkValidationOnInput(emailInput, errorSpan) {
-  emailInput.addEventListener("blur", () => {
-    if (emailInput.validity.valid) {
-      errorSpan.textContent = "";
-      errorSpan.className = "error";
-    } else {
-      showEmailError(emailInput, errorSpan);
-      errorSpan.classList.add("active");
-    }
-  });
+function addConstrains(input) {
+  addRequiredField(input);
+  addMinLength(input, 8);
+}
+
+function customEmailValidation() {
+  return true;
 }
 
 function showEmailError(input, errorSpan) {

@@ -4,8 +4,9 @@ export function createInputField(type, id, placeholder = "") {
   const inputContainer = createInputFieldContainer();
   const myLabelEl = createLabelEl(id);
   const myInputEl = createInputEl(type, id, placeholder);
+  const errorSpan = createErrorSpan();
 
-  inputContainer.append(myLabelEl, myInputEl);
+  inputContainer.append(myLabelEl, myInputEl, errorSpan);
 
   return inputContainer;
 }
@@ -23,10 +24,14 @@ export function createSelectField(id, options, firstOption) {
 export function createSubmitButton(text) {
   const submitBtn = document.createElement("button");
   submitBtn.textContent = text;
-  submitBtn.addEventListener("click", (event) => {
-    // event.preventDefault();
-  });
   return submitBtn;
+}
+
+function createErrorSpan() {
+  const errorSpan = document.createElement("span");
+  errorSpan.classList.add("error");
+  errorSpan.ariaLive = "polite";
+  return errorSpan;
 }
 
 function createInputFieldContainer() {
