@@ -1,13 +1,12 @@
 import "../styles/form.css";
 import { createSubmitButton, createInputField } from "./form-utils";
 import createCountryField from "./createCountryField";
-import addPassConfValidation from "./addPassConfValidation";
 import checkEmailValidity from "./checkEmailValidity";
 import checkPassValidity from "./checkPassValidity";
 import checkPassConfValidity from "./checkPassConfValidity";
 import passwordFieldWithValidation from "./passwordFieldWithValidation";
 import emailFieldWithValidation from "./emailFieldWithValidation";
-import passConfFieldWithValidation from "./addPassConfValidation";
+import passConfFieldWithValidation from "./passConfWithValidation";
 
 export default function createForm() {
   const formEl = document.createElement("form");
@@ -25,6 +24,9 @@ export default function createForm() {
     checkEmailValidity(emailField);
     checkPassValidity(passwordField);
     checkPassConfValidity(passConfField, passwordField);
+    if (!document.querySelector(".error.active")) {
+      document.querySelector("form").style = "border: 2px solid green";
+    }
   });
 
   formEl.append(
